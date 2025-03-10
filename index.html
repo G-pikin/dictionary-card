@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Definition Card</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Dictionary Card -->
+        <div class="card" id="dictionaryPage">
+            <!-- Card top bar -->
+            <div class="card-top">
+                <div class="dropdown-container">
+                    <div class="card-menu" id="menuButton"></div>
+                    <div class="menu-dropdown" id="menuDropdown">
+                        <div class="menu-item" data-page="historyPage">History</div>
+                        <div class="menu-item" data-page="settingsPage">Settings</div>
+                        <div class="menu-item" data-page="helpPage">Help</div>
+                        <div class="menu-item" data-page="aboutPage">About</div>
+                    </div>
+                </div>
+                <div class="card-controls">
+                    <div class="dropdown-container">
+                        <div class="serif-toggle" id="fontToggle">
+                            Serif <span class="dropdown-arrow">▼</span>
+                        </div>
+                        <div class="font-dropdown" id="fontDropdown">
+                            <div class="font-option" data-font="sans-serif">Sans Serif</div>
+                            <div class="font-option active" data-font="serif">Serif</div>
+                            <div class="font-option" data-font="monospace">Monospace</div>
+                        </div>
+                    </div>
+                    <svg class="icon favorite-icon" id="favoriteButton" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                    <svg class="icon share-icon" id="shareButton" viewBox="0 0 24 24">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <div class="theme-toggle" id="themeToggle">
+                        <svg class="moon-icon" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </div>
+                    <div class="share-dropdown" id="shareDropdown">
+                        <div class="share-option" id="copyLink">
+                            <svg class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                            </svg>
+                            Copy Link
+                        </div>
+                        <div class="share-option" id="shareEmail">
+                            <svg class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Email
+                        </div>
+                        <div class="share-option" id="shareTwitter">
+                            <svg class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                            Twitter
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card search -->
+            <div class="card-search">
+                <input type="text" class="card-search-input" placeholder="Search" value="keyboard" id="searchInput">
+                <div class="card-search-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <!-- <div class="card">
+                </div> -->
+            </div>
+
+            <!-- Word header -->
+            <div class="word-header">
+                <h1 class="word-title">keyboard</h1>
+                <div class="phonetic">
+                    /ˈkiːbɔːd/
+                    <div class="play-button" id="playButton">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noun section -->
+            <div class="part-of-speech">noun</div>
+
+            <div class="meaning-section">
+                <div class="meaning-title">Meaning</div>
+                <ul class="definition-list">
+                    <li class="definition-item">
+                        A set of keys used to operate a typewriter, computer etc.
+                    </li>
+                    <li class="definition-item">
+                        A component of some instruments including the piano, organ, and harpsichord consisting of usually black and white keys that cause different pipes to be sounded.
+                    </li>
+                    <li class="definition-item">
+                        A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="synonyms">
+                <span class="synonyms-title">Synonyms</span>
+                <a href="#" class="synonym-link">electronic keyboard</a>
+            </div>
+
+            <!-- Verb section -->
+            <div class="part-of-speech">verb</div>
+
+            <div class="meaning-section">
+                <div class="meaning-title">Meaning</div>
+                <ul class="definition-list">
+                    <li class="definition-item">
+                        To type on a computer keyboard.
+                        <div class="example">"keyboarding is the part of this job I hate the most"</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Source -->
+            <div class="source">
+                Source: 
+                <a href="https://en.wiktionary.org/wiki/keyboard" class="source-link" target="_blank">
+                    https://en.wiktionary.org/wiki/keyboard
+                    <span class="external-icon"></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- History Page -->
+        <div class="page" id="historyPage">
+            <div class="page-header">
+                <button class="back-button" data-page="dictionaryPage">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back
+                </button>
+                <h2 class="page-title">History</h2>
+            </div>
+            <div class="page-content">
+                <div class="history-item" data-word="keyboard">
+                    <div class="history-word">keyboard</div>
+                    <div class="history-date">Today, 10:30 AM</div>
+                </div>
+                <div class="history-item" data-word="dictionary">
+                    <div class="history-word">dictionary</div>
+                    <div class="history-date">Today, 9:45 AM</div>
+                </div>
+                <div class="history-item" data-word="thesaurus">
+                    <div class="history-word">thesaurus</div>
+                    <div class="history-date">Yesterday, 3:20 PM</div>
+                </div>
+                <div class="history-item" data-word="lexicon">
+                    <div class="history-word">lexicon</div>
+                    <div class="history-date">Yesterday, 1:15 PM</div>
+                </div>
+                <div class="history-item" data-word="vocabulary">
+                    <div class="history-word">vocabulary</div>
+                    <div class="history-date">Mar 6, 2025</div>
+                </div>
+                <div class="history-item" data-word="glossary">
+                    <div class="history-word">glossary</div>
+                    <div class="history-date">Mar 5, 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Page -->
+        <div class="page" id="settingsPage">
+            <div class="page-header">
+                <button class="back-button" data-page="dictionaryPage">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back
+                </button>
+                <h2 class="page-title">Settings</h2>
+            </div>
+            <div class="page-content">
+                <div class="settings-section">
+                    <div class="settings-title">Appearance</div>
+                    <div class="settings-option">
+                        <span class="settings-label">Dark Mode</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <span class="settings-label">Font</span>
+                        <select id="fontSelect" class="font-select">
+                            <option value="sans-serif">Sans Serif</option>
+                            <option value="serif" selected>Serif</option>
+                            <option value="monospace">Monospace</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-title">Pronunciation</div>
+                    <div class="settings-option">
+                        <span class="settings-label">Auto-play pronunciation</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <span class="settings-label">Pronunciation dialect</span>
+                        <select>
+                            <option>British English</option>
+                            <option>American English</option>
+                            <option>Australian English</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-title">Search</div>
+                    <div class="settings-option">
+                        <span class="settings-label">Save search history</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <span class="settings-label">Auto-suggest</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-title">Api</div>
+                    <div class="settings-option">
+                        <span class="settings-label">Provider</span>
+                        <select>
+                            <option>British English</option>
+                            <option>American English</option>
+                            <option>Australian English</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Page -->
+        <div class="page" id="helpPage">
+            <div class="page-header">
+                <button class="back-button" data-page="dictionaryPage">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back
+                </button>
+                <h2 class="page-title">Help</h2>
+            </div>
+            <div class="page-content">
+                <div class="help-section">
+                    <div class="help-title">How to use the dictionary</div>
+                    <p class="help-text">
+                        Type a word in the search box and press Enter to look up its definition. You can also click on the search icon to initiate the search.
+                    </p>
+                </div>
+                <div class="help-section">
+                    <div class="help-title">Pronunciation</div>
+                    <p class="help-text">
+                        Click on the play button next to the phonetic spelling to hear the pronunciation of the word.
+                    </p>
+                </div>
+                <div class="help-section">
+                    <div class="help-title">Favorites</div>
+                    <p class="help-text">
+                        Click the plus icon to add a word to your favorites. You can access your favorite words from the History page.
+                    </p>
+                </div>
+                <div class="help-section">
+                    <div class="help-title">Sharing</div>
+                    <p class="help-text">
+                        Click the share icon to copy the link to the definition or share it via email or social media.
+                    </p>
+                </div>
+                <div class="help-section">
+                    <div class="help-title">Font and Theme</div>
+                    <p class="help-text">
+                        Change the font style by clicking on the font selector. Toggle between light and dark mode by clicking the moon/sun icon.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page" id="aboutPage">
+            <div class="page-header">
+                <button class="back-button" data-page="dictionaryPage">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back
+                </button>
+                <h2 class="page-title">About</h2>
+            </div>
+            <div class="page-content">
+                <div class="about-section">
+                    <div class="about-title">Dictionary App</div>
+                    <p class="about-text">
+                        This dictionary application provides definitions, pronunciations, and usage examples for English words. It uses data from multiple trusted sources to provide comprehensive and accurate information.
+                    </p>
+                </div>
+                <div class="about-section">
+                    <div class="about-title">Data Sources</div>
+                    <p class="about-text">
+                        Definitions and examples are sourced from Wiktionary, Oxford Dictionary, and other open-source lexical databases. Pronunciations are recorded by professional voice actors.
+                    </p>
+                </div>
+                <div class="about-section">
+                    <div class="about-title">Privacy</div>
+                    <p class="about-text">
+                        We respect your privacy. Search history is stored locally on your device and is not shared with any third parties. You can clear your search history at any time from the Settings page.
+                    </p>
+                </div>
+                <div class="version">Version 1.0.0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Message copied to clipboard</div>
+</body>
+</html>
